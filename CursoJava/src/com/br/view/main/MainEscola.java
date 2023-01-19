@@ -15,6 +15,7 @@ public class MainEscola {
 		
 		List<aluno> alunos = new ArrayList<aluno>();
 		
+		
 		int op = 0;
 		
 		for (int qtd = 0; qtd <= 1; qtd++) { 
@@ -73,10 +74,21 @@ public class MainEscola {
 				}
 			}
 		
-		for (aluno aluno : alunos) {
+		
+		for(aluno aluno : alunos) {
+		
+		
+
+			
 			System.out.println("a media da nota e " + aluno.getMedia());
-			System.out.println("Aluno " + aluno.getNome() + "foi " + (aluno.alunoAprovado() ? "aprovado" : "reprovado"));
+			System.out.println("Aluno " + aluno.getNome() + "foi " + aluno.alunoAprovadoConstante());
+// Com boolean: System.out.println("Aluno " + aluno.getNome() + "foi " + (aluno.alunoAprovadoConstante() ? "aprovado" : "reprovado"));
 			System.out.println("--------------------------------------------------------------------------");
+			
+			for(Disciplina disc : aluno.getDisciplinas()) {
+				System.out.println("Materia: " + disc.getDisciplina() + " nota: " + disc.getNota());
+			}
+			
 		}
 		
 		
@@ -84,3 +96,33 @@ public class MainEscola {
 	
 
 }
+
+////----------  Substituição de objeto dentro de uma lista   -----------
+//for (int pos = 0; pos < alunos.size(); pos++) {
+//
+//aluno aluno = new aluno();
+//
+
+//if(aluno.getNome().equalsIgnoreCase("joao")) {
+//	aluno trocar = new aluno(); // precisa de um novo aluno !
+//	trocar.setNome("alberto");
+//	
+//	
+//	//como é um novo aluno tem que setar as novas notas e disciplinas 
+//	Disciplina disciplina = new Disciplina(); 
+//	disciplina.setDisciplina("matematica");
+//	disciplina.setNota(9);
+//	disciplina.setDisciplina("historia");
+//	disciplina.setNota(9);
+//	disciplina.setDisciplina("geografia");
+//	disciplina.setNota(9);
+//	disciplina.setDisciplina("ingles");
+//	disciplina.setNota(9);
+//	
+//	trocar.getDisciplinas().add(disciplina);
+//	
+//	alunos.set(pos, trocar);  // o indice, o objeto - trocando na lista 
+//	aluno = alunos.get(pos); // trocando no objeto - fazer isso pra lá em baixo ele não ficar com o objeto antigo
+//	
+//}
+// --------- fim da substituição de objeto ----------- 

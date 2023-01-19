@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.br.DTO.aluno.Disciplina;
+import com.br.constantes.StatusAluno;
 
 public class aluno {
 
@@ -46,14 +47,28 @@ public class aluno {
 		return somaNotas / disciplinas.size();
 	}
 	
-	public boolean alunoAprovado() {
+	
+	// METODO DE APROVAR DO BOOLEAN  ( MAIS UTILIZADO NO DIA A DIA) 
+//	public boolean alunoAprovado() {
+//		double media = this.getMedia();
+//		if(media >= 6) {
+//			return true;
+//		} else {
+//			return false;
+//		}
+//	}
+	
+	
+	// METODO DE APROVAR COM CONSTANTE - PARA TRINAR CONSTANTES
+	public String alunoAprovadoConstante() {
 		double media = this.getMedia();
 		if(media >= 6) {
-			return true;
+			return StatusAluno.APROVADO;
 		} else {
-			return false;
+			return StatusAluno.REPROVADO;
 		}
-	}
+		}
+	
 	
 	
 	
