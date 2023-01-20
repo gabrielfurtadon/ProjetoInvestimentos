@@ -7,6 +7,7 @@ import javax.swing.JOptionPane;
 
 import com.br.DTO.aluno.Disciplina;
 import com.br.DTO.aluno.aluno;
+import com.br.constantes.StatusAluno;
 
 public class MainEscola {
 
@@ -14,7 +15,8 @@ public class MainEscola {
 		// TODO Auto-generated method stub
 		
 		List<aluno> alunos = new ArrayList<aluno>();
-		
+		List<aluno> aprovados = new ArrayList<aluno>();
+		List<aluno> reprovados = new ArrayList<aluno>();
 		
 		int op = 0;
 		
@@ -63,7 +65,7 @@ public class MainEscola {
 						String remover = JOptionPane.showInputDialog("Qual Disciplina deseja remover ? 0, 1, 2 ou 3");
 						aluno1.getDisciplinas().remove(Integer.valueOf(remover).intValue() - posicaoRemovida);
 						posicaoRemovida++;
-						continuarRemover = JOptionPane.showConfirmDialog(null, "Continuar a remover?");
+						continuarRemover = JOptionPane.showConfirmDialog(null, "Continuar a remover?"); 
 						
 						
 						}
@@ -74,22 +76,38 @@ public class MainEscola {
 				}
 			}
 		
-		
-		for(aluno aluno : alunos) {
-		
-		
-
-			
-			System.out.println("a media da nota e " + aluno.getMedia());
-			System.out.println("Aluno " + aluno.getNome() + "foi " + aluno.alunoAprovadoConstante());
-// Com boolean: System.out.println("Aluno " + aluno.getNome() + "foi " + (aluno.alunoAprovadoConstante() ? "aprovado" : "reprovado"));
-			System.out.println("--------------------------------------------------------------------------");
-			
-			for(Disciplina disc : aluno.getDisciplinas()) {
-				System.out.println("Materia: " + disc.getDisciplina() + " nota: " + disc.getNota());
+			for(aluno aluno : alunos) {
+				
+				if(aluno.alunoAprovadoConstante().equalsIgnoreCase(StatusAluno.APROVADO)) {
+					aprovados.add(aluno);
+				} else if(aluno.alunoAprovadoConstante().equalsIgnoreCase(StatusAluno.REPROVADO)) {
+					reprovados.add(aluno);
+				}
 			}
 			
-		}
+			System.out.println("----- Lista dos Aprovados -------");
+			for(aluno aprovado : aprovados) {
+				System.out.println("aluno: " + aprovado.getNome() +" "+ aprovado.alunoAprovadoConstante());
+			}
+			System.out.println("----- Lista dos Reprovados -----");
+			for(aluno reprovado : reprovados) {
+				System.out.println("aluno: " + reprovado.getNome() +" "+ reprovado.alunoAprovadoConstante());
+			}
+		
+		
+		
+//		for(aluno aluno : alunos) {
+//		
+//			System.out.println("a media da nota e " + aluno.getMedia());
+//			System.out.println("Aluno " + aluno.getNome() + "foi " + aluno.alunoAprovadoConstante());
+//// Com boolean: System.out.println("Aluno " + aluno.getNome() + "foi " + (aluno.alunoAprovadoConstante() ? "aprovado" : "reprovado"));
+//			System.out.println("--------------------------------------------------------------------------");
+//			
+//			for(Disciplina disc : aluno.getDisciplinas()) {
+//				System.out.println("Materia: " + disc.getDisciplina() + " nota: " + disc.getNota());
+//			}
+//			
+//		}
 		
 		
 	}
