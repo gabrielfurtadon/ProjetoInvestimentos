@@ -1,6 +1,7 @@
 package com.br.view.main;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.swing.JOptionPane;
@@ -14,9 +15,14 @@ public class MainEscola {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		List<aluno> alunos = new ArrayList<aluno>();
-		List<aluno> aprovados = new ArrayList<aluno>();
-		List<aluno> reprovados = new ArrayList<aluno>();
+		 List<aluno> alunos = new ArrayList<aluno>();
+		
+		// Todas listas abaixo serão substituidas pelo HashMap
+		// List<aluno> aprovados = new ArrayList<aluno>();
+		// List<aluno> reprovados = new ArrayList<aluno>();
+		
+		// é uma lista que dentro temos uma chave que identifica uma sequencia de valores 
+		HashMap<String, List<aluno>> maps = new HashMap <String, List<aluno>>();
 		
 		int op = 0;
 		
@@ -76,21 +82,37 @@ public class MainEscola {
 				}
 			}
 		
+		
+			// INICIALIZANDO VALORES DA LISTA COM LISTA VAZIA 
+			maps.put(StatusAluno.APROVADO, new ArrayList<aluno>());
+			maps.put(StatusAluno.REPROVADO, new ArrayList<aluno>());
+		
 			for(aluno aluno : alunos) {
 				
 				if(aluno.alunoAprovadoConstante().equalsIgnoreCase(StatusAluno.APROVADO)) {
-					aprovados.add(aluno);
+					maps.get(StatusAluno.APROVADO).add(aluno); // recupera a lista de alunos do maps.put
 				} else if(aluno.alunoAprovadoConstante().equalsIgnoreCase(StatusAluno.REPROVADO)) {
-					reprovados.add(aluno);
+					maps.get(StatusAluno.REPROVADO).add(aluno);
 				}
-			}
+		}
+			
+			
+			// DIVISAO SEM O HASHMAPS 
+//			for(aluno aluno : alunos) {
+//				
+//				if(aluno.alunoAprovadoConstante().equalsIgnoreCase(StatusAluno.APROVADO)) {
+//					aprovados.add(aluno);
+//				} else if(aluno.alunoAprovadoConstante().equalsIgnoreCase(StatusAluno.REPROVADO)) {
+//					reprovados.add(aluno);
+//				}
+//			}
 			
 			System.out.println("----- Lista dos Aprovados -------");
-			for(aluno aprovado : aprovados) {
+			for(aluno aprovado : maps.get(StatusAluno.APROVADO) ) {
 				System.out.println("aluno: " + aprovado.getNome() +" "+ aprovado.alunoAprovadoConstante());
 			}
 			System.out.println("----- Lista dos Reprovados -----");
-			for(aluno reprovado : reprovados) {
+			for(aluno reprovado : maps.get(StatusAluno.REPROVADO)) {
 				System.out.println("aluno: " + reprovado.getNome() +" "+ reprovado.alunoAprovadoConstante());
 			}
 		
