@@ -5,11 +5,10 @@ import java.util.List;
 
 import com.br.DTO.aluno.Disciplina;
 import com.br.constantes.StatusAluno;
+import com.br.view.main.Pessoa;
 
-public class aluno {
+public class aluno extends Pessoa{
 
-	private String nome;
-	private int idade;
 	
 	private List<Disciplina>  disciplinas = new ArrayList<Disciplina>(); // sempre que for variavel lista coloca o nome no plural 
 	
@@ -23,21 +22,7 @@ public class aluno {
 		this.disciplinas = disciplinas;
 	}
 	
-	public String getNome() {
-		return nome;
-	}
 	
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-	
-	public int getIdade() {
-		return idade;
-	}
-	
-	public void setIdade(int idade) {
-		this.idade = idade;
-	}
 	
 	public double getMedia() {
 		double somaNotas = 0;
