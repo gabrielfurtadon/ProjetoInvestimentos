@@ -3,6 +3,8 @@ package com.br.DTO.aluno;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JOptionPane;
+
 import com.br.DTO.aluno.Disciplina;
 import com.br.constantes.StatusAluno;
 import com.br.view.main.Pessoa;
@@ -54,6 +56,20 @@ public class aluno extends Pessoa{
 		}
 		}
 	
+	// identifica método sobrescrito -- SÓ QUE AI PODE MUDAR O METODO 
+	@Override 
+	public boolean pessoaMaiorDeIdade() {
+		//return >= 21; PODERIA MUDAR O METODO NESSA CLASSE POR EXEMPLO
+		return super.pessoaMaiorDeIdade();
+	}
+	
+	
+	//Método que é Obrigatorio para ser feito, pois é abstrario na classe mae
+	@Override
+	public double mesada() {
+		
+		return 50;
+	}
 	
 	
 	

@@ -109,11 +109,11 @@ public class MainEscola {
 			
 			System.out.println("----- Lista dos Aprovados -------");
 			for(aluno aprovado : maps.get(StatusAluno.APROVADO) ) {
-				System.out.println("aluno: " + aprovado.getNome() +" "+ aprovado.alunoAprovadoConstante());
+				System.out.println("aluno: " + aprovado.getNome() +" "+ aprovado.alunoAprovadoConstante() + " " +aprovado.msgAlunoMaiorDeIdade());
 			}
 			System.out.println("----- Lista dos Reprovados -----");
 			for(aluno reprovado : maps.get(StatusAluno.REPROVADO)) {
-				System.out.println("aluno: " + reprovado.getNome() +" "+ reprovado.alunoAprovadoConstante());
+				System.out.println("aluno: " + reprovado.getNome() +" "+ reprovado.alunoAprovadoConstante() + " " + reprovado.msgAlunoMaiorDeIdade());
 			}
 		
 		
