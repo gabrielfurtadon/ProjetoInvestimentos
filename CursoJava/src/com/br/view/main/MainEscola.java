@@ -10,6 +10,7 @@ import com.br.DTO.aluno.Diretor;
 import com.br.DTO.aluno.Disciplina;
 import com.br.DTO.aluno.aluno;
 import com.br.constantes.StatusAluno;
+import com.br.interfaces.PermitirAcesso;
 
 public class MainEscola {
 
@@ -19,11 +20,16 @@ public class MainEscola {
 		String login = JOptionPane.showInputDialog("informe o login");
 		String senha = JOptionPane.showInputDialog("informe a senha");
 		
-		Diretor diretor = new Diretor();
-		diretor.setLogin(login);
-		diretor.setSenha(senha);
+		//METOD more simple, without parameters, but can cause bugs in more complicated systems. if use this, take off the parameters below and in interface
+//		Diretor diretor = new Diretor();
+//		diretor.setLogin(login);
+//		diretor.setSenha(senha);
 		
-		if(diretor.autenticar()) { // if true get access, if false don't get in the system 
+		PermitirAcesso diretor = new Diretor();
+		
+		
+		
+		if(diretor.autenticar(login, senha)) { // if true get access, if false don't get in the system 
 		
 		 List<aluno> alunos = new ArrayList<aluno>();
 		
