@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
+import com.br.DTO.aluno.Diretor;
 import com.br.DTO.aluno.Disciplina;
 import com.br.DTO.aluno.aluno;
 import com.br.constantes.StatusAluno;
@@ -14,6 +15,15 @@ public class MainEscola {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		
+		String login = JOptionPane.showInputDialog("informe o login");
+		String senha = JOptionPane.showInputDialog("informe a senha");
+		
+		Diretor diretor = new Diretor();
+		diretor.setLogin(login);
+		diretor.setSenha(senha);
+		
+		if(diretor.autenticar()) { // if true get access, if false don't get in the system 
 		
 		 List<aluno> alunos = new ArrayList<aluno>();
 		
@@ -131,9 +141,11 @@ public class MainEscola {
 //			
 //		}
 		
-		
+			
+		}else {
+			JOptionPane.showMessageDialog(null, "Login Invalido!");
+		}
 	}
-	
 
 }
 
