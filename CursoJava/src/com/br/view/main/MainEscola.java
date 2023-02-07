@@ -17,6 +17,8 @@ public class MainEscola {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
+		try {
+		
 		String login = JOptionPane.showInputDialog("informe o login");
 		String senha = JOptionPane.showInputDialog("informe a senha");
 		
@@ -151,8 +153,31 @@ public class MainEscola {
 		}else {
 			JOptionPane.showMessageDialog(null, "Login Invalido!");
 		}
+	
+	
+		
+	}catch (Exception e) {
+		
+		//StringBuilder saida = new StringBuilder();
+		e.printStackTrace(); // imprime erro no console (ESSENCIAL)
+		
+		
+		for (int pos = 0; pos < e.getStackTrace().length; pos++) { // getStackTrace is an array 
+			
+			System.out.println("Classe de erro: " + e.getStackTrace()[pos].getClass());
+			System.out.println("Método do erro: " + e.getStackTrace()[pos].getMethodName());
+			System.out.println("Linha do erro: " + e.getStackTrace()[pos].getLineNumber());
+			System.out.println("Tipo do erro: " + e.getStackTrace()[pos].getClass().getName());
+			
+		}
+		
+		JOptionPane.showMessageDialog(null, "Erro ao processar notas");
+	}finally {  // BLOCO FINALY IS ALLWAYS EXCECUTED 
+		JOptionPane.showMessageDialog(null, "Voltem sempre!");
 	}
 
+}
+	
 }
 
 ////----------  Substituição de objeto dentro de uma lista   -----------
