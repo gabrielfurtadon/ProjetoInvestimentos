@@ -1,4 +1,4 @@
-package com.br.view.main;
+ package com.br.view.main;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -61,10 +61,10 @@ public class MainEscola {
 				for(int i = 0; i <= 3; i++) {
 					Disciplina disciplina = new Disciplina();
 					String nomeDisciplina = JOptionPane.showInputDialog("Qual o nome da disciplina " + i + " ?");
-					String notaDisciplina = JOptionPane.showInputDialog("Qual a nota da disciplina " + i + " ?");
+					disciplina.nota[i] = Double.parseDouble(JOptionPane.showInputDialog("Qual a nota da disciplina " + i + " ?"));
 					
 					disciplina.setDisciplina(nomeDisciplina);
-					disciplina.setNota(Double.parseDouble(notaDisciplina));
+					
 					
 					aluno1.getDisciplinas().add(disciplina);	
 				}
@@ -127,11 +127,11 @@ public class MainEscola {
 			
 			System.out.println("----- Lista dos Aprovados -------");
 			for(aluno aprovado : maps.get(StatusAluno.APROVADO) ) {
-				System.out.println("aluno: " + aprovado.getNome() +" "+ aprovado.alunoAprovadoConstante() + " " +aprovado.msgAlunoMaiorDeIdade());
+				System.out.println("aluno: " + aprovado.getNome() +" "+ aprovado.alunoAprovadoConstante() + " com  " + aprovado.getMedia() + " " + aprovado.msgAlunoMaiorDeIdade());
 			}
 			System.out.println("----- Lista dos Reprovados -----");
 			for(aluno reprovado : maps.get(StatusAluno.REPROVADO)) {
-				System.out.println("aluno: " + reprovado.getNome() +" "+ reprovado.alunoAprovadoConstante() + " " + reprovado.msgAlunoMaiorDeIdade());
+				System.out.println("aluno: " + reprovado.getNome() +" "+ reprovado.alunoAprovadoConstante() +" com  " + reprovado.getMedia() + " " + reprovado.msgAlunoMaiorDeIdade());
 			}
 		
 		
