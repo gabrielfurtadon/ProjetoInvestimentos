@@ -16,7 +16,7 @@ public class MainView {
 	public static void main(String[] args) {
 		
 		List<Investidor> investidores = new ArrayList<>();
-		List<AgenteAutonomo> agestes = new ArrayList<>();
+		List<AgenteAutonomo> agentes = new ArrayList<>();
 		
 		Investidor investidor = new Investidor();
 		Scanner sc = new Scanner(System.in);
@@ -59,6 +59,7 @@ public class MainView {
 				System.out.println("Qual o nome do investidor?");
 				String name = sc.next();
 				// List<Investidor> busca = investidores.stream().filter(x -> x.charAt(0) = x)
+				break;
 						
 			}
 			
@@ -66,8 +67,35 @@ public class MainView {
 			
 			
 			
-		}//else if(login.equalsIgnoreCase() && senha.equalsIgnoreCase("admin"))
-		
+		}else if(login.equalsIgnoreCase("123") && senha.equalsIgnoreCase("123")) {
+			String op;
+			int x;
+			
+			System.out.println("Bem vindo Agente cliente");  
+			do {
+			System.out.println("O que deseja fazer?");
+			System.out.println("-----------------------------------------------"); 
+			System.out.println("1 - Fazer aporte "); 
+			System.out.println("2 - Ver investimentos ");
+			System.out.println("3 - Simular Investimentos ");
+			System.out.println("0 - Sair "); 
+			op = sc.next();
+			switch(op) {
+			case "1": 
+				investidor.aportar();
+				break;
+			case "2": 
+				investidor.mostrarPatrimonio();
+				break;
+			case "3": 
+				investidor.simulacao();
+				break;
+			}
+		x = Integer.parseInt(op);
+		}while(x != 0); 
 	}
+
+	
+}
 	
 }
